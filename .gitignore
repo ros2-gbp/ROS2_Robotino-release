@@ -1,4 +1,5 @@
 build/**
 devel/**
+log/**
 **/.idea
 .vscode/**
