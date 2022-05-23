@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'robotino_node = robotino_ros2.robotino_node:main'
+            'power_node = robotino_ros2.power_node:main'
         ],
     },
 )

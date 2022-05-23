@@ -1,0 +1,9 @@
+---
+bool battery_low
+uint32 battery_low_shutdown_counter
+string battery_type
+bool ext_power
+uint32 num_chargers
+float32 voltage
+
+
