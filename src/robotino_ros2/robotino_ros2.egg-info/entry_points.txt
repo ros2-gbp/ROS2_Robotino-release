@@ -1,4 +1,0 @@
-[console_scripts]
-power_node = robotino_ros2.power_node:main
-robotino_node = robotino_ros2.robotino_node:main
-
