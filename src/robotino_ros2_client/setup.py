@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'power_node_client = robotino_ros2_client.power_node_client:main'
         ],
     },
 )
