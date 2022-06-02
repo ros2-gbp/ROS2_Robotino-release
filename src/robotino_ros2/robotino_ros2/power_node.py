@@ -9,8 +9,17 @@ class PowerNode(Node):
         self.power_management_srv = self.create_service(PowerManagement,'power_management',callback=self.get_power_management)
     
     def get_power_management(self,request,response):
-        x = requests.get("http://10.42.0.148/data/powermanagement")
-        print(x)
+        print("got request")
+        result = requests.get("http://10.42.0.148/data/powermanagement").json()
+        print(result)
+        response.battery_low = result["batteryLow"]
+        response.battery_low_shutdown_counter = result["batteryLowShutdownCounter"]
+        response.battery_type = result["batteryType"]
+        response.ext_power = result["ext_power"]
+        response.num_chargers = result["num_chargers"]
+        response.voltage = result["voltage"]
+        return response
+
 
 def main(args=None):
     rclpy.init(args=args)
