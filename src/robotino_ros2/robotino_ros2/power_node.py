@@ -1,13 +1,13 @@
 import rclpy
 from rclpy.node import Node
-from robotino_ros2_msg.srv import PowerManagement
+from robotino_ros2_msg.srv import PowerManagement,Charger
 
 import requests
 class PowerNode(Node):
     def __init__(self):
         super().__init__("power_node")
         self.power_management_srv = self.create_service(PowerManagement,'power_management',callback=self.get_power_management)
-    
+        self.charger_srv = self.create_service(Charger, 'Charger', callback=self.get_charger_info)
     def get_power_management(self,request,response):
         print("got request")
         result = requests.get("http://10.42.0.148/data/powermanagement").json()
@@ -19,6 +19,9 @@ class PowerNode(Node):
         response.num_chargers = result["num_chargers"]
         response.voltage = result["voltage"]
         return response
+
+    def get_charger_info(self,request,response):
+        pass
 
 
 def main(args=None):

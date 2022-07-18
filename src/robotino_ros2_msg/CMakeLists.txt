@@ -30,6 +30,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetEncoderPosition.srv"
   "srv/SetGripperState.srv"
   "srv/PowerManagement.srv"
+  "srv/Charger.srv"
   DEPENDENCIES builtin_interfaces
   DEPENDENCIES geometry_msgs
 )
