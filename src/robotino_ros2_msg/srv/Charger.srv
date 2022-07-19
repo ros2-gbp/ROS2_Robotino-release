@@ -1,9 +1,9 @@
 ---
-float32 bat1_temp
-float32 bat2_temp
-float32 battery_voltage
+int32 bat1_temp
+int32 bat2_temp
+float64 battery_voltage
 int32 charger_number
-float32 charging_current
+float64 charging_current
 string state
 int32 state_number
 int64 time

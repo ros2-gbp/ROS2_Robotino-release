@@ -9,4 +9,10 @@ def generate_launch_description():
             executable='power_node',
             name='main'
         ),
+        Node(
+            package='robotino_ros2',
+            namespace='robotino',
+            executable='controller_node',
+            name='main'
+        )
     ])

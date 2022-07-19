@@ -14,7 +14,7 @@ class PowerNode(Node):
         self.power_management_srv = self.create_service(
             PowerManagement, 'power_management', callback=self.get_power_management)
         self.charger_srv = self.create_service(
-            Charger, 'Charger', callback=self.get_charger_info)
+            Charger, 'charger', callback=self.get_charger_info)
 
     def get_power_management(self, request, response):
         result = requests.get(ip + "/data/powermanagement").json()
@@ -28,6 +28,7 @@ class PowerNode(Node):
 
     def get_charger_info(self, request, response):
         result = requests.get(ip + "/data/charger0").json()
+        print(result)
         response.bat1_temp = result["bat1temp"]
         response.bat2_temp = result["bat2temp"]
         response.battery_voltage = result["batteryVoltage"]

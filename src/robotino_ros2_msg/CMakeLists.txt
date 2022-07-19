@@ -31,6 +31,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetGripperState.srv"
   "srv/PowerManagement.srv"
   "srv/Charger.srv"
+  "srv/ControllerInfo.srv"
   DEPENDENCIES builtin_interfaces
   DEPENDENCIES geometry_msgs
 )
