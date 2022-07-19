@@ -17,10 +17,14 @@ class PowerNodeClient(Node):
     def power_management_info(self):
         req = PowerManagement.Request()
         self.result = self.power_management_client.call_async(req)
+        rclpy.spin_until_future_complete(self, self.result)
         print(self.result)
     
     def charger_info(self):
-        pass
+        req = Charger.Request()
+        self.result = self.charger_client.call_async(req)
+        rclpy.spin_until_future_complete(self, self.result)
+        print(self.result().bat1_temp)
 
 
 def main(args=None):

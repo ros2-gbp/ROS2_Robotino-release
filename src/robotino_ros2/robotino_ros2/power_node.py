@@ -1,12 +1,11 @@
 import rclpy
 from rclpy.node import Node
+from robotino_ros2.config import ip_address
 from robotino_ros2_msg.srv import PowerManagement, Charger
-from configparser import ConfigParser
 import requests
 
-config = ConfigParser()
-config.read('config.cfg')
-ip = "http://" + config.get("internet", "ip_address")
+
+ip = "http://" + ip_address
 
 
 class PowerNode(Node):
@@ -36,6 +35,9 @@ class PowerNode(Node):
         response.charging_current = result["chargingCurrent"]
         response.state = result["state"]
         response.state_number = result["state_number"]
+        response.time = result["time"]
+        response.version = result["version"]
+        return response
 
 
 def main(args=None):
