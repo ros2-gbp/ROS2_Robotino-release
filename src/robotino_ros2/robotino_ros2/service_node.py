@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from robotino_ros2.config import ip_address
 from robotino_ros2_msg.srv import Services
-from robotino_ros2_msg.msg import Service,ServiceGroup
+from robotino_ros2_msg.msg import Service, ServiceGroup
 import requests
 
 
@@ -13,14 +13,14 @@ class ServiceNode(Node):
     def __init__(self):
         super().__init__('service_node')
         self.services_srv = self.create_service(
-            Services, 'Services', callback=self.get_controller_info)
+            Services, 'services', callback=self.get_services)
 
-    def get_controller_info(self, request, response):
+    def get_services(self, request, response):
         result = requests.get(ip + '/data/services').json()
         response_array = []
         for sub_service_group in result:
             service_group_array = []
-            #get service group and loop through it
+            # get service group and loop through it
             service_group = sub_service_group['_children']
             for sub_service in service_group:
                 service = Service()
@@ -40,7 +40,6 @@ class ServiceNode(Node):
         response.services = response_array
         return response
 
-        return response
 
 def main(args=None):
     rclpy.init(args=args)
