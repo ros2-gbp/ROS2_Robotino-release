@@ -21,5 +21,4 @@ def generate_launch_description():
             executable='service_node',
             name='main'
         )
-
     ])
