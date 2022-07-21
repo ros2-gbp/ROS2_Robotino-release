@@ -14,5 +14,12 @@ def generate_launch_description():
             namespace='robotino',
             executable='controller_node',
             name='main'
+        ),
+        Node(
+            package='robotino_ros2',
+            namespace='robitino',
+            executable='service_node',
+            name='main'
         )
+
     ])

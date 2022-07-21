@@ -26,12 +26,15 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/GripperState.msg"
   "msg/PowerReadings.msg"
   "msg/SetGrapplerAxis.msg"
+  "msg/Service.msg"
+  "msg/ServiceGroup.msg"
   "srv/ResetOdometry.srv"
   "srv/SetEncoderPosition.srv"
   "srv/SetGripperState.srv"
   "srv/PowerManagement.srv"
   "srv/Charger.srv"
   "srv/ControllerInfo.srv"
+  "srv/Services.srv"
   DEPENDENCIES builtin_interfaces
   DEPENDENCIES geometry_msgs
 )
