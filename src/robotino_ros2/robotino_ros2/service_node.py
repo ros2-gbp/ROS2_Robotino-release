@@ -9,10 +9,10 @@ import requests
 ip = 'http://' + ip_address
 
 
-class ControllerNode(Node):
+class ServiceNode(Node):
     def __init__(self):
-        super().__init__('controller_node')
-        self.controller_info_srv = self.create_service(
+        super().__init__('service_node')
+        self.services_srv = self.create_service(
             Services, 'Services', callback=self.get_controller_info)
 
     def get_controller_info(self, request, response):
@@ -44,7 +44,7 @@ class ControllerNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = ControllerNode()
+    node = ServiceNode()
     rclpy.spin(node)
     rclpy.shutdown()
 

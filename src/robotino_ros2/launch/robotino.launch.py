@@ -17,7 +17,7 @@ def generate_launch_description():
         ),
         Node(
             package='robotino_ros2',
-            namespace='robitino',
+            namespace='robotino',
             executable='service_node',
             name='main'
         )
