@@ -1,0 +1,4 @@
+---
+float32[] analog_input_array
+bool[] digital_input_array
+bool[] digital_output_array

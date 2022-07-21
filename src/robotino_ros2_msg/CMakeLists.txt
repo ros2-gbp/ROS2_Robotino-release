@@ -35,6 +35,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/Charger.srv"
   "srv/ControllerInfo.srv"
   "srv/Services.srv"
+  "srv/IOStatus.srv"
   DEPENDENCIES builtin_interfaces
   DEPENDENCIES geometry_msgs
 )
