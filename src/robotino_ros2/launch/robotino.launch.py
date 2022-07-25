@@ -26,5 +26,12 @@ def generate_launch_description():
             namespace='robotino',
             executable='io_node',
             name='main'
+        ),
+        Node(
+            package='robotino_ros2',
+            namespace='robotino',
+            executable='omnidrive_node',
+            name='main'
         )
+
     ])

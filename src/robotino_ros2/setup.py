@@ -23,7 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'robotino_node = robotino_ros2.robotino_node:main',
+            'omnidrive_node = robotino_ros2.omnidrive_node:main',
             'power_node = robotino_ros2.power_node:main',
             'controller_node = robotino_ros2.controller_node:main',
             'service_node = robotino_ros2.service_node:main',

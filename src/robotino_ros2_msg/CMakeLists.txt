@@ -28,6 +28,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SetGrapplerAxis.msg"
   "msg/Service.msg"
   "msg/ServiceGroup.msg"
+  "msg/Omnidrive.msg"
   "srv/ResetOdometry.srv"
   "srv/SetEncoderPosition.srv"
   "srv/SetGripperState.srv"
