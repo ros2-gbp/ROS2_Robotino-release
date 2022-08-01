@@ -19,6 +19,8 @@ class IONode(Node):
             OutputControl, "digital_output_sub", self.digital_output_control, 10)
         self.digital_output_array_subscriber = self.subscriptions(
             OutputControlArray, "digital_output_array_sub", self.degital_output_array_control, 10)
+        self.relay_subscriber = self.subscriptions(OutputControl, "relay_control", self.relay_control, 10)
+        self.relay_array_subscriber = self.subscriptions(OutputControlArray, "relay_array_control", self.relay_array_control, 10)
 
     def degital_output_control(self, msg):
         request_json = {
@@ -28,10 +30,23 @@ class IONode(Node):
         requests.post(ip+"/data/digitaloutput", data=json.dumps(request_json))
 
     def degital_output_array_control(self, msg):
-        req_array = msg.array
-        if (len(req_array) == 8):
+        request_json = msg.array
+        if len(request_json) == 8:
             requests.post(ip+"/data/digitaloutputarray",
-                          data=json.dumps(req_array))
+                          data=json.dumps(request_json))
+
+    def relay_control(self, msg):
+        request_json = {
+            "num": msg.NUM,
+            "val": msg.VAL
+        }
+        requests.post(ip+"/data/relay", data=json.dumps(request_json))
+
+    def relay_array_control(self, msg):
+        request_json = msg.array
+        if len(request_json) == 8:
+            requests.post(ip+"/data/relayarray",
+                          data=json.dumps(request_json))
 
     def get_io_status(self, request, response):
         result = requests.get(ip + "/data/analoginputarray").json()
