@@ -55,6 +55,8 @@ class IONode(Node):
         response.digital_input_array = result
         result = requests.get(ip + "/data/digitaloutputstatus").json()
         response.digital_output_array = result
+        result = requests.get(ip + "/data/relaystatus").json()
+        response.relay_status_array = result
         return response
 
 

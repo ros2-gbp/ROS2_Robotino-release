@@ -31,6 +31,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Omnidrive.msg"
   "msg/OutputControl.msg"
   "msg/OutputControlArray.msg"
+  "msg/Image.msg"
+  "msg/LaserScan.msg"
   "srv/ResetOdometry.srv"
   "srv/SetEncoderPosition.srv"
   "srv/SetGripperState.srv"

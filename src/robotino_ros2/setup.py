@@ -27,7 +27,8 @@ setup(
             'power_node = robotino_ros2.power_node:main',
             'controller_node = robotino_ros2.controller_node:main',
             'service_node = robotino_ros2.service_node:main',
-            'io_node = robotino_ros2.io_node:main'
+            'io_node = robotino_ros2.io_node:main',
+            'camera_node = robotino_ros2.camera_node:main'
         ],
     },
 )
