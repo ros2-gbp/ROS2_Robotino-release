@@ -2,7 +2,3 @@
 	path = src/urg_node
 	url = https://github.com/ros-drivers/urg_node
     branch = ros2-devel
-[submodule "usb_cam"]
-	path = src/usb_cam
-	url = https://github.com/ros-drivers/usb_cam/
-    branch = ros2
