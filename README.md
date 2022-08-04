@@ -2,6 +2,9 @@
 
 
 ## Install
+install camera and ladar dependencies by 
+`./install.sh`
+
 `colcon build`
 
 ## run script
