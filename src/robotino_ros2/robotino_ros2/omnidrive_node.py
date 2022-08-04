@@ -19,8 +19,6 @@ class OmnidriveNode(Node):
         request_json = [msg.vx,msg.vy,msg.omega]
         requests.post(ip+"/data/omnidrive",data=json.dumps(request_json),headers=headers)
 
-        
-
 
 def main(args=None):
     rclpy.init(args=args)
