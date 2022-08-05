@@ -2,5 +2,3 @@ requests
 setuptools==58.2.0
 simplejson
 numpy
-cv_bridge
-opencv-python
