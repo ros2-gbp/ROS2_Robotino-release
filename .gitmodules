@@ -1,7 +1,0 @@
-[submodule "urg_node"]
-	path = src/urg_node
-	url = https://github.com/ros-drivers/urg_node
-    branch = ros2-devel
-[submodule "joystick_drivers"]
-	path = joystick_drivers
-	url = https://github.com/ros-drivers/joystick_drivers.git

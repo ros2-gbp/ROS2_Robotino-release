@@ -1,10 +1,11 @@
+from email import message
 import rclpy
 import json
 import requests
 from rclpy.node import Node
 from robotino_ros2.config import ip_address
 from robotino_ros2_msg.srv import IOStatus
-from robotino_ros2_msg.msg import OutputControl, OutputControlArray
+from robotino_ros2_msg.msg import OutputControl, OutputControlArray, DistanceArray
 
 
 ip = "http://" + ip_address
@@ -15,14 +16,23 @@ class IONode(Node):
         super().__init__("io_node")
         self.controller_info_srv = self.create_service(
             IOStatus, 'io_status', callback=self.get_io_status)
-        self.digital_output_subscriber = self.subscriptions(
+        self.digital_output_subscriber = self.create_subscription(
             OutputControl, "digital_output_sub", self.digital_output_control, 10)
-        self.digital_output_array_subscriber = self.subscriptions(
+        self.digital_output_array_subscriber = self.create_subscription(
             OutputControlArray, "digital_output_array_sub", self.degital_output_array_control, 10)
-        self.relay_subscriber = self.subscriptions(OutputControl, "relay_control", self.relay_control, 10)
-        self.relay_array_subscriber = self.subscriptions(OutputControlArray, "relay_array_control", self.relay_array_control, 10)
+        self.relay_subscriber = self.create_subscription(OutputControl, "relay_control", self.relay_control, 10)
+        self.relay_array_subscriber = self.create_subscription(OutputControlArray, "relay_array_control", self.relay_array_control, 10)
+        self.distance_publisher = self.create_publisher(DistanceArray,'distance_array_output',10)
+        self.timer = self.create_timer(0.1, self.distance_callback)
 
-    def degital_output_control(self, msg):
+    def distance_callback(self):
+        result = requests.get(ip + "/data/distancesensorarray").json()
+        msg = DistanceArray()
+        msg.array = result
+        self.distance_publisher.publish(msg)
+
+
+    def digital_output_control(self, msg):
         request_json = {
             "num": msg.NUM,
             "val": msg.VAL
