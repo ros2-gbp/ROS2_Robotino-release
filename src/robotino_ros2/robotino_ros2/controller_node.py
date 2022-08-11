@@ -21,6 +21,7 @@ class ControllerNode(Node):
         response.software_payload = result["payload"]["software"]
         return response
 
+
 def main(args=None):
     rclpy.init(args=args)
     node = ControllerNode()
