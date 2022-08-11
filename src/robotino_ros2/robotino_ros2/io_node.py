@@ -20,9 +20,12 @@ class IONode(Node):
             OutputControl, "digital_output_sub", self.digital_output_control, 10)
         self.digital_output_array_subscriber = self.create_subscription(
             OutputControlArray, "digital_output_array_sub", self.degital_output_array_control, 10)
-        self.relay_subscriber = self.create_subscription(OutputControl, "relay_control", self.relay_control, 10)
-        self.relay_array_subscriber = self.create_subscription(OutputControlArray, "relay_array_control", self.relay_array_control, 10)
-        self.distance_publisher = self.create_publisher(DistanceArray,'distance_array_output',10)
+        self.relay_subscriber = self.create_subscription(
+            OutputControl, "relay_control", self.relay_control, 10)
+        self.relay_array_subscriber = self.create_subscription(
+            OutputControlArray, "relay_array_control", self.relay_array_control, 10)
+        self.distance_publisher = self.create_publisher(
+            DistanceArray, 'distance_array_output', 10)
         self.timer = self.create_timer(0.1, self.distance_callback)
 
     def distance_callback(self):
@@ -30,7 +33,6 @@ class IONode(Node):
         msg = DistanceArray()
         msg.array = result
         self.distance_publisher.publish(msg)
-
 
     def digital_output_control(self, msg):
         request_json = {
