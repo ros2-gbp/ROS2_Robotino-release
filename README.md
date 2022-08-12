@@ -21,9 +21,28 @@ Clone this repository by \
 Install dependencies by \
 `./install.sh`
 
+config your robotino ip in [config file](!src/robotino_ros2/robotino_ros2/config.py)
 
 
+build your robot by \
+`colcon build`
 
+install your ros package by \
+`source install/setup.bash` 
+or 
+`source install/setup.zsh`
+
+config network connection by \
+`export ROS_DOMAIN_ID=1`
+
+launch camera and laser node on the robotino by \
+`ros2 launch robotino_ros2 robotino_local`
+
+launch other nodes on your computer by \
+`ros2 launch robotino_ros2 robotino_remote`
+
+You can try to control robotino by teleop \
+`ros2 run teleop_twist_keyboard teleop_twist_keyboard`
 
 ## run script
 To run this project faster, a run script has been finished. use `./run.zsh` to run this project.
