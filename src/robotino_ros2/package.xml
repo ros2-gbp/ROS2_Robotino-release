@@ -4,7 +4,7 @@
   <name>robotino_ros2</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="ziang.qiu@gmail.com">robohouse</maintainer>
+  <maintainer email="ziang.qiu@gmail.com">SkyloveQiu</maintainer>
   <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
