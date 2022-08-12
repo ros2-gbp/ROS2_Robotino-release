@@ -33,5 +33,4 @@ def generate_launch_description():
             executable='omnidrive_node',
             name='main'
         )
-
     ])

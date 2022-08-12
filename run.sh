@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 colcon build
 source install/setup.zsh
