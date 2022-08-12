@@ -1,12 +1,12 @@
 # ROS2_Robotino
 ROS2 package for robotino.
-Fully redesigned package that adapts to robotino [RestAPI](!https://wiki.openrobotino.org/index.php?title=Rest_api).
+Fully redesigned package that adapts to robotino [RestAPI](https://wiki.openrobotino.org/index.php?title=Rest_api).
 
 ## Prerequisite
 
 To run this package, you have to install these system components first.
-- [Robotino4 OS](!https://wiki.openrobotino.org/index.php?title=Robotino4_images)
-- [ROS Galactic](!https://docs.ros.org/en/galactic/Installation.html)
+- [Robotino4 OS](https://wiki.openrobotino.org/index.php?title=Robotino4_images)
+- [ROS Galactic](https://docs.ros.org/en/galactic/Installation.html)
 
 Use other version is at your **OWN** risk, they are **NOT** tested with this system.
 Ubuntu 20.04 is **STRONGLY** recommended for this package.
@@ -21,7 +21,7 @@ Clone this repository by \
 Install dependencies by \
 `./install.sh`
 
-config your robotino ip in [config file](!src/robotino_ros2/robotino_ros2/config.py)
+config your robotino ip in [config file](src/robotino_ros2/robotino_ros2/config.py)
 
 
 build your robot by \
