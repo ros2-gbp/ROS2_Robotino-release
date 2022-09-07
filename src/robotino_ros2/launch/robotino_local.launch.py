@@ -30,7 +30,10 @@ def generate_launch_description():
                 robotino_ros2_dir, 'config',
                 'lidar_config.yaml')
         if os.path.exists(param_file):
+            print("we have found the file")
             return [SetLaunchConfiguration('param', param_file)]
+        else:
+            print("error")
 
     param_file_path = OpaqueFunction(function=expand_param_file_name)
     ld.add_action(param_file_path)
