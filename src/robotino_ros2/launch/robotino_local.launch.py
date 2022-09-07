@@ -31,7 +31,7 @@ def generate_launch_description():
         'lidar_config.yaml'
     )
     hokuyo_node = Node(
-        package='urg_node', executable='urg_node', output='screen',
+        package='urg_node', executable='urg_node_driver', output='screen',
         name="lidar_node",
         parameters=[lidar_params_path])
 
