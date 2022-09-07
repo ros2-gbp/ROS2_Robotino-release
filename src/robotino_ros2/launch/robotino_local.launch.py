@@ -37,17 +37,16 @@ def generate_launch_description():
 
     param_file_path = OpaqueFunction(function=expand_param_file_name)
     ld.add_action(param_file_path)
+    print(LaunchConfiguration('param'))
     hokuyo_node = Node(
         package='urg_node', executable='urg_node_driver', output='screen',
         name="lidar_node",
         parameters=[LaunchConfiguration('param')])
-
-    print(params_path)
+    ld.add_action(hokuyo_node)
     ld.add_action(Node(
         package='usb_cam', executable='usb_cam_node_exe', output='screen',
         name="camera_node",
         # namespace=ns,
         parameters=[params_path]
     ))
-    ld.add_action(hokuyo_node)
     return ld
