@@ -23,7 +23,7 @@ def generate_launch_description():
     params_path = os.path.join(
         robotino_ros2_dir,
         'config',
-        'camera_params.yaml'
+        'camera_param.yaml'
     )
 
     def expand_param_file_name(context):
