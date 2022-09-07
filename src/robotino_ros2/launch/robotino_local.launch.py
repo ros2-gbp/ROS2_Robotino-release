@@ -25,15 +25,19 @@ def generate_launch_description():
         'config',
         'camera_param.yaml'
     )
-    lidar_params_path = os.path.join(
-        robotino_ros2_dir,
-        'config',
-        'lidar_config.yaml'
-    )
+    def expand_param_file_name(context):
+        param_file = os.path.join(
+                robotino_ros2_dir, 'config',
+                'lidar_config.yaml')
+        if os.path.exists(param_file):
+            return [SetLaunchConfiguration('param', param_file)]
+
+    param_file_path = OpaqueFunction(function=expand_param_file_name)
+    ld.add_action(param_file_path)
     hokuyo_node = Node(
         package='urg_node', executable='urg_node_driver', output='screen',
         name="lidar_node",
-        parameters=[lidar_params_path])
+        parameters=[LaunchConfiguration('param')])
 
     print(params_path)
     ld.add_action(Node(
