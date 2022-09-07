@@ -14,6 +14,7 @@ def generate_launch_description():
     ld = LaunchDescription([
         DeclareLaunchArgument(
             'robotino_ros2',
+            default_value = "normal",
             description='ros2 package for robotino')])
 
     robotino_ros2_dir = get_package_share_directory('robotino_ros2')
