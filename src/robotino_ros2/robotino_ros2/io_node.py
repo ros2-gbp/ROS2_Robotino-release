@@ -29,10 +29,13 @@ class IONode(Node):
         self.timer = self.create_timer(0.1, self.distance_callback)
 
     def distance_callback(self):
-        result = requests.get(ip + "/data/distancesensorarray").json()
-        msg = DistanceArray()
-        msg.array = result
-        self.distance_publisher.publish(msg)
+        try:
+            result = requests.get(ip + "/data/distancesensorarray").json()
+            msg = DistanceArray()
+            msg.array = result
+            self.distance_publisher.publish(msg)
+        finally:
+            return
 
     def digital_output_control(self, msg):
         request_json = {
