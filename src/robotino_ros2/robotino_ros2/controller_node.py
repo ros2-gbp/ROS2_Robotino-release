@@ -35,7 +35,7 @@ class ControllerNode(Node):
         super().__init__("controller_node")
         self.controller_info_srv = self.create_service(
             ControllerInfo, 'controller_info', callback=self.get_controller_info)
-        self.odom_pub = self.create_publisher(Odometry,"Odometry",50)
+        self.odom_pub = self.create_publisher(Odometry,"odom",50)
         self.broadcaster = tf2_ros.TransformBroadcaster(self, 10)
         self.odometry = Odometry()
         while rclpy.ok():

@@ -16,6 +16,7 @@ setup(
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.urdf')),
         (os.path.join('share', package_name, 'urdf/model'), glob('urdf/model/*.dae')),
+        (os.path.join('share', package_name, 'urdf'), glob('urdf/*.rviz')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
