@@ -45,7 +45,7 @@ You can try to control robotino by teleop \
 `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
 
 ## Config the network
-Please go to [config.py](!src/robotino_ros2/robotino_ros2/config.py) to change the ip address of Robotino.
+Please go to [config.py](src/robotino_ros2/robotino_ros2/config.py) to change the ip address of Robotino.
 
 ## SLAM
 The SLAM function has been tested. launch SLAM Node by \
