@@ -11,6 +11,9 @@ To run this package, you have to install these system components first.
 Use other version is at your **OWN** risk, they are **NOT** tested with this system.
 Ubuntu 20.04 is **STRONGLY** recommended for this package.
 
+ROS2 Humble has not been tested, since the robotino only supports Ubuntu 20.04.
+Please follow the tutorial to install ROS Galactic on both your PC and Robotino.
+
 ### Install LiDAR and Camera Dependencies on robotino
 Connect robotino with ssh protocol \
 `sshpass -p robotino robotino@robotino_ip_address`
@@ -21,10 +24,7 @@ Clone this repository by \
 Install dependencies by \
 `./install.sh`
 
-config your robotino ip in [config file](src/robotino_ros2/robotino_ros2/config.py)
-
-
-build your robot by \
+build your package by \
 `colcon build`
 
 install your ros package by \
@@ -44,8 +44,17 @@ launch other nodes on your computer by \
 You can try to control robotino by teleop \
 `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
 
+## Config the network
+Please go to [config.py](!src/robotino_ros2/robotino_ros2/config.py) to change the ip address of Robotino.
+
+## SLAM
+The SLAM function has been tested. launch SLAM Node by \
+`ros2 launch robotino_ros2 robotino_slam.launch.py`
+
 ## run script
 To run this project faster, a run script has been finished. use `./run.zsh` to run this project.
+
+
 
 
 ## Contributing
